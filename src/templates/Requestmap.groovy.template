@@ -13,4 +13,19 @@ class ${requestmapClassName} {
 		url blank: false, unique: true
 		configAttribute blank: false
 	}
+
+	def springSecurityService
+	
+	def afterInsert() {
+		springSecurityService.clearCachedRequestmaps()
+	}
+	
+	def afterUpdate() {
+		springSecurityService.clearCachedRequestmaps()
+	}
+	
+	def afterDelete() {
+		springSecurityService.clearCachedRequestmaps()
+	}
+
 }
